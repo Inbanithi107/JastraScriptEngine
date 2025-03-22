@@ -95,4 +95,32 @@ public class JastraEngine extends JastraScriptEngineBaseVisitor<String>{
         }
         return null;
     }
+
+    @Override
+    public String visitRangeLoop(JastraScriptEngineParser.RangeLoopContext ctx) {
+        StringBuilder sb = new StringBuilder();
+        int start = Integer.parseInt(ctx.NUMBER(0).getText());
+        int end = Integer.parseInt(ctx.NUMBER(1).getText());
+        for(int i=start ; i<end ; i++){
+            sb.append(visit(ctx.statement()));
+        }
+        return sb.toString();
+    }
+
+    @Override
+    public String visitListLoop(JastraScriptEngineParser.ListLoopContext ctx) {
+        StringBuilder sb = new StringBuilder();
+        Object objs = context.get(ctx.IDENTIFIER(1).getText());
+        List<?> objList;
+        if (objs instanceof List<?>) {
+            objList = (List<?>) objs;
+        } else {
+            objList = Collections.singletonList(objs); // Wrap single object in a list
+        }
+        for (Object obj : objList){
+            context.put(ctx.IDENTIFIER(0).getText(), obj);
+            sb.append(visit(ctx.statement()));
+        }
+        return sb.toString();
+    }
 }

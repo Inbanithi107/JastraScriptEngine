@@ -38,6 +38,30 @@ public interface JastraScriptEngineListener extends ParseTreeListener {
 	 */
 	void exitIfStatement(JastraScriptEngineParser.IfStatementContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code rangeLoop}
+	 * labeled alternative in {@link JastraScriptEngineParser#forStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterRangeLoop(JastraScriptEngineParser.RangeLoopContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code rangeLoop}
+	 * labeled alternative in {@link JastraScriptEngineParser#forStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitRangeLoop(JastraScriptEngineParser.RangeLoopContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code listLoop}
+	 * labeled alternative in {@link JastraScriptEngineParser#forStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterListLoop(JastraScriptEngineParser.ListLoopContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code listLoop}
+	 * labeled alternative in {@link JastraScriptEngineParser#forStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitListLoop(JastraScriptEngineParser.ListLoopContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link JastraScriptEngineParser#condition}.
 	 * @param ctx the parse tree
 	 */

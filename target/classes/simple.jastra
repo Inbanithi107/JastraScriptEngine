@@ -1,7 +1,3 @@
-"hello"+user.getUsername
-"hi"+user.getPassword
-if("inba"=="inbanithi"){
-    "hello if"
-}else{
-    "hello else"
+for(0,5){
+    "hello everyone"
 }

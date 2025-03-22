@@ -7,7 +7,9 @@ import org.antlr.v4.runtime.tree.ParseTree;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class JastraScriptEngineExecutor {
@@ -30,7 +32,10 @@ public class JastraScriptEngineExecutor {
 
         Map<String, Object> map = new HashMap<>();
         map.put("username", "inbanithi");
-        map.put("user", new User("inbanithi", "1234"));
+        List<User> users = new ArrayList<>();
+        users.add(new User("inbanithi", "1234"));
+        users.add(new User("kavin", "4321"));
+        map.put("users", users);
         JastraEngine engine = new JastraEngine(map);
         String output = engine.visit(tree);
         System.out.println(output);

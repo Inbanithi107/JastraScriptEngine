@@ -53,6 +53,30 @@ public class JastraScriptEngineBaseListener implements JastraScriptEngineListene
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterRangeLoop(JastraScriptEngineParser.RangeLoopContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRangeLoop(JastraScriptEngineParser.RangeLoopContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterListLoop(JastraScriptEngineParser.ListLoopContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitListLoop(JastraScriptEngineParser.ListLoopContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterCondition(JastraScriptEngineParser.ConditionContext ctx) { }
 	/**
 	 * {@inheritDoc}

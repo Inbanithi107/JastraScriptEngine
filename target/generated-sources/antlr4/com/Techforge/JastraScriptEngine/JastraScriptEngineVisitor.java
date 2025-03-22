@@ -29,6 +29,20 @@ public interface JastraScriptEngineVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIfStatement(JastraScriptEngineParser.IfStatementContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code rangeLoop}
+	 * labeled alternative in {@link JastraScriptEngineParser#forStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRangeLoop(JastraScriptEngineParser.RangeLoopContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code listLoop}
+	 * labeled alternative in {@link JastraScriptEngineParser#forStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitListLoop(JastraScriptEngineParser.ListLoopContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link JastraScriptEngineParser#condition}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
