@@ -13,13 +13,15 @@ import java.util.List;
 import java.util.Map;
 
 public class JastraScriptEngineExecutor {
-    public static void main(String[] args) {
-        String input = "";
-        try {
-            input = new String(Files.readAllBytes(Paths.get("src/main/resources/simple.jastra")));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+
+    private  Map<String,Object> context;
+
+    public JastraScriptEngineExecutor(Map<String,Object> context){
+        this.context = context;
+    }
+
+    public String execute(String input) {
+
         CharStream charStream = CharStreams.fromString(input);
 
         JastraScriptEngineLexer lexer = new JastraScriptEngineLexer(charStream);
@@ -30,14 +32,8 @@ public class JastraScriptEngineExecutor {
 
         ParseTree tree = parser.script();
 
-        Map<String, Object> map = new HashMap<>();
-        map.put("username", "inbanithi");
-        List<User> users = new ArrayList<>();
-        users.add(new User("inbanithi", "1234"));
-        users.add(new User("kavin", "4321"));
-        map.put("users", users);
-        JastraEngine engine = new JastraEngine(map);
+        JastraEngine engine = new JastraEngine(context);
         String output = engine.visit(tree);
-        System.out.println(output);
+        return output;
     }
 }
